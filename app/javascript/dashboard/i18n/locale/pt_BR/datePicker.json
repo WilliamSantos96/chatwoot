@@ -1,7 +1,7 @@
 {
   "DATE_PICKER": {
-    "APPLY_BUTTON": "Apply",
-    "CLEAR_BUTTON": "Clear",
+    "APPLY_BUTTON": "Aplicar",
+    "CLEAR_BUTTON": "Limpar",
     "DATE_RANGE_INPUT": {
       "START": "Data de Início",
       "END": "Data de Término"
