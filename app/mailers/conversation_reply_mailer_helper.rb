@@ -17,7 +17,7 @@ module ConversationReplyMailerHelper
     google_smtp_settings
     set_delivery_method
 
-    Rails.logger.info("Email sent from #{email_from} to #{to_emails} with subject #{mail_subject}")
+    Rails.logger.info("E-mail enviado para #{email_from} to #{to_emails} com assunto #{mail_subject}")
 
     mail(@options)
   end
@@ -100,6 +100,6 @@ module ConversationReplyMailerHelper
     return @account.inbound_email_domain if @account.inbound_email_domain.present?
 
     email = @inbox.channel.try(:email)
-    email.present? ? email.split('@').last : raise(StandardError, 'Channel email domain not present.')
+    email.present? ? email.split('@').last : raise(StandardError, 'Domínio de e-mail do canal não presente.')
   end
 end

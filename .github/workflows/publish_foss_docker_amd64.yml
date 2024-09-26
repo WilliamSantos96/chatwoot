@@ -1,24 +1,15 @@
-# #
-# # This action will publish Chatwoot CE docker image.
-# # This is set to run against merges to develop, master
-# # and when tags are created.
-# #
-
-name: Publish Chatwoot CE docker images for AMD64
+name: Publicar imagem docker do OmnisChat para AMD64
 on:
   push:
     branches:
       - develop
-      - master
-      - team
     tags:
       - v*
   workflow_dispatch:
 
 jobs:
   build:
-    #runs-on: ubuntu-latest
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     env:
       GIT_REF: ${{ github.head_ref || github.ref_name }} # ref_name to get tags/branches
     steps:
@@ -34,12 +25,12 @@ jobs:
 
       - name: set docker tag
         run: |
-          echo "DOCKER_TAG=sendingtk/chatwoot:$GIT_REF" >> $GITHUB_ENV
+          echo "DOCKER_TAG=williamsantositabaiana/omnischat:$GIT_REF" >> $GITHUB_ENV
 
       - name: replace docker tag if master
         if: github.ref_name == 'master'
         run: |
-          echo "DOCKER_TAG=sendingtk/chatwoot:latest" >> $GITHUB_ENV
+          echo "DOCKER_TAG=williamsantositabaiana/omnischat:latest" >> $GITHUB_ENV
 
       - name: Login to DockerHub
         uses: docker/login-action@v3.3.0

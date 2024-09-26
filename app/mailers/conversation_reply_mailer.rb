@@ -47,8 +47,8 @@ class ConversationReplyMailer < ApplicationMailer
 
     @messages = @conversation.messages.chat.select(&:conversation_transcriptable?)
 
-    Rails.logger.info("Email sent from #{from_email_with_name} \
-      to #{to_email} with subject #{@conversation.display_id} \
+    Rails.logger.info("E-mail enviado para #{from_email_with_name} \
+      to #{to_email} com assunto #{@conversation.display_id} \
       #{I18n.t('conversations.reply.transcript_subject')} ")
     mail({
            to: to_email,
@@ -98,7 +98,7 @@ class ConversationReplyMailer < ApplicationMailer
   end
 
   def custom_sender_name
-    current_message&.sender&.available_name || @agent&.available_name || 'Notifications'
+    current_message&.sender&.available_name || @agent&.available_name || 'Notificações'
   end
 
   def business_name

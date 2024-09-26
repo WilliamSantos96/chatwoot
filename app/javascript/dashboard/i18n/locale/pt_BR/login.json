@@ -1,9 +1,9 @@
 {
   "LOGIN": {
-    "TITLE": "Login to Chatwoot",
+    "TITLE": "Entrar no OmnisChat",
     "EMAIL": {
       "LABEL": "Email",
-      "PLACEHOLDER": "example@companyname.com",
+      "PLACEHOLDER": "exemplo@gmail.com",
       "ERROR": "Por favor, insira um endereço de email válido"
     },
     "PASSWORD": {

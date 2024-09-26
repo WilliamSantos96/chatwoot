@@ -73,5 +73,53 @@
     <% if @dashboard_scripts.present? %> 
       <%= @dashboard_scripts.html_safe %>
     <% end %>
+
+    window.chatwootSettings = {
+        "position": "left",
+        "hideMessageBubble": false
+      };
+
+      (function(d,t) {
+        var BASE_URL = "https://app.omnischat.com";
+        var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+        g.src = BASE_URL + "/packs/js/sdk.js";
+        g.defer = true;
+        g.async = true;
+        s.parentNode.insertBefore(g,s);
+        g.onload = function() {
+          window.chatwootSDK.run({
+            websiteToken: 'Hqy1EjNfRCU2J1k2Ni1NLsbg',
+            baseUrl: BASE_URL
+          });
+
+          var style = document.createElement('style');
+          style.textContent = `
+            .woot-widget-bubble.woot-elements--left {
+              left: 75px !important;
+            }
+            .woot-widget-holder.woot-elements--left {
+              left: 75px !important;
+            }
+            .woot-widget-bubble {
+              background-image: url('https://img.icons8.com/ios-filled/50/ffffff/headset.png') !important;
+              background-size: 60% !important;
+              background-repeat: no-repeat !important;
+              background-position: center !important;
+              background-color: #336699 !important;
+            }
+            .woot-widget-bubble::before {
+              position: absolute !important;
+              background-color: #ffffff !important;
+              z-index: 0 !important;
+            }
+            .woot-widget-bubble i, .woot-widget-bubble svg {
+              opacity: 0 !important;
+              visibility: hidden !important;
+            }
+          `;
+          document.head.appendChild(style);
+        }
+      })(document,"script");
+
   </body>
 </html>
