@@ -2,7 +2,7 @@ name: Publicar imagem docker do OmnisChat para AMD64
 on:
   push:
     branches:
-      - develop
+      - master
     tags:
       - v*
   workflow_dispatch:

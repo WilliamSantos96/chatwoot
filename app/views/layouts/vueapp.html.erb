@@ -73,7 +73,8 @@
     <% if @dashboard_scripts.present? %> 
       <%= @dashboard_scripts.html_safe %>
     <% end %>
-
+    
+    <script>
     window.chatwootSettings = {
         "position": "left",
         "hideMessageBubble": false
@@ -120,6 +121,6 @@
           document.head.appendChild(style);
         }
       })(document,"script");
-
+    </script>
   </body>
 </html>
