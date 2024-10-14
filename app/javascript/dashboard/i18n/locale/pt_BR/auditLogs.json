@@ -11,7 +11,7 @@
       "404": "Não há Logs de Auditoria disponíveis nesta conta.",
       "TITLE": "Gerenciar Logs de Auditoria",
       "DESC": "Os Logs de Auditoria são trilhas para eventos e ações em um Sistema Chatwoot.",
-      "TABLE_HEADER": ["Activity", "Time", "IP Address"]
+      "TABLE_HEADER": ["Atividade", "Data/Hora", "Endereço IP"]
     },
     "API": {
       "SUCCESS_MESSAGE": "AuditLogs recuperados com sucesso",

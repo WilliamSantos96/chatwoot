@@ -1,10 +1,10 @@
 {
   "TEAMS_SETTINGS": {
-    "NEW_TEAM": "Create new team",
-    "HEADER": "Teams",
-    "LOADING": "Fetching teams",
+    "NEW_TEAM": "Criar nova Equipe",
+    "HEADER": "Equipes",
+    "LOADING": "Buscando equipes",
     "DESCRIPTION": "As equipes permitem que você organize agentes em grupos com base em suas responsabilidades. Um agente pode pertencer a várias equipes. Ao trabalhar colaborativamente, você pode atribuir conversas a equipes específicas.",
-    "LEARN_MORE": "Learn more about teams",
+    "LEARN_MORE": "Saiba mais sobre equipes",
     "LIST": {
       "404": "Não há equipes criadas nesta conta.",
       "EDIT_TEAM": "Edit team",
@@ -71,7 +71,7 @@
       "ERROR_MESSAGE": "Não foi possível salvar os detalhes da equipe. Tente novamente."
     },
     "AGENTS": {
-      "AGENT": "AGENT",
+      "AGENT": "AGENTE",
       "EMAIL": "EMAIL",
       "BUTTON_TEXT": "Adicionar agentes",
       "ADD_AGENTS": "Adicionando agentes à sua equipe...",
@@ -107,7 +107,7 @@
         "NO": "Cancelar"
       }
     },
-    "SETTINGS": "Settings",
+    "SETTINGS": "Configurações",
     "FORM": {
       "UPDATE": "Atualizar equipe",
       "CREATE": "Criar equipe",

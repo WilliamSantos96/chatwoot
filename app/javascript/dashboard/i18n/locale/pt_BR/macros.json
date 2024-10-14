@@ -2,11 +2,11 @@
   "MACROS": {
     "HEADER": "Macros",
     "DESCRIPTION": "Uma macro é um conjunto de ações salvas que ajudam os agentes de atendimento ao cliente a completar tarefas facilmente. Os agentes podem definir um conjunto de ações como marcar uma conversa com um rótulo, enviar uma transcrição por e-mail, atualizar um atributo personalizado, etc., e eles podem executar essas ações com um único clique.",
-    "LEARN_MORE": "Learn more about macros",
-    "HEADER_BTN_TXT": "Add a new macro",
-    "HEADER_BTN_TXT_SAVE": "Save macro",
-    "LOADING": "Fetching macros",
-    "ERROR": "Something went wrong. Please try again",
+    "LEARN_MORE": "Saiba mais sobre macros",
+    "HEADER_BTN_TXT": "Adicionar uma nova macro",
+    "HEADER_BTN_TXT_SAVE": "Salvar macro",
+    "LOADING": "Buscando macros",
+    "ERROR": "Algo deu errado. Por favor, tente novamente",
     "ORDER_INFO": "As macros serão executadas na ordem em que você adicionar suas ações. Você pode reorganizá-las arrastando-as pela alça ao lado de cada nó.",
     "ADD": {
       "FORM": {
