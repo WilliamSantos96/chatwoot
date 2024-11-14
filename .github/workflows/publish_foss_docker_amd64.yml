@@ -1,4 +1,4 @@
-name: Publicar imagem do OmnisChat para AMD64
+name: Publicar imagem Docker do OmnisChat para AMD64
 on:
   push:
     branches:
