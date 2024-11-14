@@ -146,7 +146,7 @@ const GO_TO_COMMANDS = [
     featureFlag: FEATURE_FLAGS.INTEGRATIONS,
     section: 'COMMAND_BAR.SECTIONS.SETTINGS',
     icon: ICON_APPS,
-    path: accountId => `accounts/${accountId}/settings/applications`,
+    path: accountId => `accounts/${accountId}/settings/integrations`,
     role: ['administrator'],
   },
   {
