@@ -74,7 +74,7 @@
       <%= @dashboard_scripts.html_safe %>
     <% end %>
     
-    <script>
+  <script>
     window.chatwootSettings = {
         "position": "left",
         "hideMessageBubble": false
@@ -89,7 +89,7 @@
         s.parentNode.insertBefore(g,s);
         g.onload = function() {
           window.chatwootSDK.run({
-            websiteToken: 'Hqy1EjNfRCU2J1k2Ni1NLsbg',
+            websiteToken: 'NmUZg9w2UkR58TUrBFPFM9e6',
             baseUrl: BASE_URL
           });
 
@@ -97,6 +97,7 @@
           style.textContent = `
             .woot-widget-bubble.woot-elements--left {
               left: 75px !important;
+              z-index: 0 !important;
             }
             .woot-widget-holder.woot-elements--left {
               left: 75px !important;
