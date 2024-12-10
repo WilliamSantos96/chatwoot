@@ -2,7 +2,7 @@ name: Publicar imagem Docker do OmnisChat para AMD64
 on:
   push:
     branches:
-      - master
+      - omnis
     tags:
       - v*
   workflow_dispatch:
@@ -27,8 +27,8 @@ jobs:
         run: |
           echo "DOCKER_TAG=williamsantositabaiana/omnischat:$GIT_REF" >> $GITHUB_ENV
 
-      - name: replace docker tag if master
-        if: github.ref_name == 'master'
+      - name: replace docker tag if omnis
+        if: github.ref_name == 'omnis'
         run: |
           echo "DOCKER_TAG=williamsantositabaiana/omnischat:latest" >> $GITHUB_ENV
 
