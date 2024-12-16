@@ -18,7 +18,7 @@ RSpec.describe 'Devise::Mailer' do
     it 'has the correct header data' do
       expect(mail.reply_to).to contain_exactly('accounts@chatwoot.com')
       expect(mail.to).to contain_exactly(confirmable_user.email)
-      expect(mail.subject).to eq('Confirmation Instructions')
+      expect(mail.subject).to eq('Instruções de Confirmação')
     end
 
     it 'uses the user\'s name' do
@@ -26,8 +26,8 @@ RSpec.describe 'Devise::Mailer' do
     end
 
     it 'does not refer to the inviter and their account' do
-      expect(mail.body).not_to match('has invited you to try out Chatwoot!')
-      expect(mail.body).to match('We have a suite of powerful tools ready for you to explore.')
+      expect(mail.body).not_to match('convidou você para experimentar o OmnisChat!')
+      expect(mail.body).to match('Temos um conjunto de ferramentas poderosas prontas para você explorar.')
     end
 
     it 'sends a confirmation link' do
@@ -40,9 +40,9 @@ RSpec.describe 'Devise::Mailer' do
 
       it 'refers to the inviter and their account' do
         expect(mail.body).to match(
-          "#{CGI.escapeHTML(inviter_val.name)}, with #{CGI.escapeHTML(account.name)}, has invited you to try out Chatwoot."
+          "#{CGI.escapeHTML(inviter_val.name)}, com #{CGI.escapeHTML(account.name)}, convidou você para experimentar o OmnisChat."
         )
-        expect(mail.body).not_to match('We have a suite of powerful tools ready for you to explore.')
+        expect(mail.body).not_to match('Temos um conjunto de ferramentas poderosas prontas para você explorar.')
       end
 
       it 'sends a password reset link' do
