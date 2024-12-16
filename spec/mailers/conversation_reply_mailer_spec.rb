@@ -45,12 +45,12 @@ RSpec.describe ConversationReplyMailer do
                })
       end
 
-      let(:private_message) { create(:message, account: account, content: 'This is a private message', conversation: conversation) }
+      let(:private_message) { create(:message, account: account, content: 'Esta é uma mensagem privada', conversation: conversation) }
       let(:mail) { described_class.reply_with_summary(message.conversation, message.id).deliver_now }
       let(:cc_mail) { described_class.reply_with_summary(cc_message.conversation, message.id).deliver_now }
 
       it 'renders the default subject' do
-        expect(mail.subject).to eq("[##{message.conversation.display_id}] New messages on this conversation")
+        expect(mail.subject).to eq("[##{message.conversation.display_id}] Novas mensagens nesta conversa")
       end
 
       it 'renders the subject in conversation as reply' do
@@ -87,7 +87,7 @@ RSpec.describe ConversationReplyMailer do
       let(:mail) { described_class.reply_with_summary(message.conversation, message.id).deliver_now }
 
       it 'has correct name' do
-        expect(mail[:from].display_names).to eq(["#{message.sender.available_name} from Inbox"])
+        expect(mail[:from].display_names).to eq(["#{message.sender.available_name} da caixa de entrada"])
       end
     end
 
@@ -97,7 +97,7 @@ RSpec.describe ConversationReplyMailer do
       let(:message_2) { build(:message, conversation: conversation, account: account, message_type: 'outgoing', content: 'Outgoing Message 2') }
       let(:private_message) do
         create(:message,
-               content: 'This is a private message',
+               content: 'Esta é uma mensagem privada',
                conversation: conversation,
                account: account,
                message_type: 'outgoing').reload
@@ -109,7 +109,7 @@ RSpec.describe ConversationReplyMailer do
       end
 
       it 'renders the default subject' do
-        expect(mail.subject).to eq("[##{message_2.conversation.display_id}] New messages on this conversation")
+        expect(mail.subject).to eq("[##{message_2.conversation.display_id}] Novas mensagens nesta conversa")
       end
 
       it 'renders the subject in conversation' do
@@ -143,7 +143,7 @@ RSpec.describe ConversationReplyMailer do
       let(:mail) { described_class.email_reply(message).deliver_now }
 
       it 'renders the subject' do
-        expect(mail.subject).to eq("[##{message.conversation.display_id}] New messages on this conversation")
+        expect(mail.subject).to eq("[##{message.conversation.display_id}] Novas mensagens nesta conversa")
       end
 
       it 'renders the body' do
@@ -156,7 +156,7 @@ RSpec.describe ConversationReplyMailer do
 
 #nwe code
       context 'with previous message' do
-        let!(:prev_message) { create(:message, conversation: conversation, account: account, message_type: 'incoming', content: 'Prev Message') }
+        let!(:prev_message) { create(:message, conversation: conversation, account: account, message_type: 'incoming', content: 'Mensagem anterior') }
 
         it { expect(mail.decoded).to include prev_message.content }
       end
@@ -185,13 +185,13 @@ RSpec.describe ConversationReplyMailer do
       it 'renders sender name even when assignee is not present' do
         conversation.update(assignee_id: nil)
         mail = described_class.email_reply(message)
-        expect(mail['from'].value).to eq "#{message.sender.available_name} from #{smtp_email_channel.inbox.name} <#{smtp_email_channel.email}>"
+        expect(mail['from'].value).to eq "#{message.sender.available_name} de #{smtp_email_channel.inbox.name} <#{smtp_email_channel.email}>"
       end
 
       it 'renders assignee name in the from address when sender_name not available' do
         message.update(sender_id: nil)
         mail = described_class.email_reply(message)
-        expect(mail['from'].value).to eq "#{conversation.assignee.available_name} from #{smtp_email_channel.inbox.name} <#{smtp_email_channel.email}>"
+        expect(mail['from'].value).to eq "#{conversation.assignee.available_name} de #{smtp_email_channel.inbox.name} <#{smtp_email_channel.email}>"
       end
 
       it 'renders inbox name as sender and assignee or business_name not present' do
@@ -199,7 +199,7 @@ RSpec.describe ConversationReplyMailer do
         conversation.update(assignee_id: nil)
 
         mail = described_class.email_reply(message)
-        expect(mail['from'].value).to eq "Notifications from #{smtp_email_channel.inbox.name} <#{smtp_email_channel.email}>"
+        expect(mail['from'].value).to eq "Notificações de #{smtp_email_channel.inbox.name} <#{smtp_email_channel.email}>"
       end
 
       context 'when friendly name enabled' do
@@ -215,7 +215,7 @@ RSpec.describe ConversationReplyMailer do
 
           mail = described_class.email_reply(message)
 
-          expect(mail['from'].value).to eq "Notifications from #{conversation.inbox.name} <#{smtp_email_channel.email}>"
+          expect(mail['from'].value).to eq "Notificações de #{conversation.inbox.name} <#{smtp_email_channel.email}>"
         end
 
         it 'renders sender name as sender and assignee nil and business_name present' do
@@ -225,7 +225,7 @@ RSpec.describe ConversationReplyMailer do
           mail = described_class.email_reply(message)
 
           expect(mail['from'].value).to eq(
-            "Notifications from #{conversation.inbox.business_name} <#{smtp_email_channel.email}>"
+            "Notificações de #{conversation.inbox.business_name} <#{smtp_email_channel.email}>"
           )
         end
 
@@ -234,7 +234,7 @@ RSpec.describe ConversationReplyMailer do
           conversation.update(assignee_id: agent.id)
 
           mail = described_class.email_reply(message)
-          expect(mail['from'].value).to eq "#{agent.available_name} from #{conversation.inbox.business_name} <#{smtp_email_channel.email}>"
+          expect(mail['from'].value).to eq "#{agent.available_name} de #{conversation.inbox.business_name} <#{smtp_email_channel.email}>"
         end
 
         it 'renders sender name as sender and assignee and business_name present' do
@@ -375,7 +375,7 @@ RSpec.describe ConversationReplyMailer do
       end
 
       it 'sets the from email to be the support email' do
-        expect(mail['FROM'].value).to eq("#{conversation.messages.last.sender.available_name} from Inbox <#{conversation.account.support_email}>")
+        expect(mail['FROM'].value).to eq("#{conversation.messages.last.sender.available_name} da caixa de entrada <#{conversation.account.support_email}>")
         expect(mail.from).to eq([conversation.account.support_email])
       end
 
